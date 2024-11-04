@@ -12,30 +12,80 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            animation: fadeIn 1.5s;
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         header {
             background-color: #333;
             color: #fff;
             padding: 20px;
             text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
         header h1 {
             margin: 0;
+            transition: transform 0.3s;
         }
+
+        header h1:hover {
+            transform: scale(1.1);
+        }
+
         .content {
             max-width: 800px;
             margin: 50px auto;
             padding: 20px;
             background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
+
+        .content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
         .content h2 {
             text-align: center;
             color: #333;
         }
+
         .content p {
             text-align: center;
             font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .reveal-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .reveal-button:hover {
+            background-color: #0056b3;
+        }
+
+        .extra-info {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #666;
         }
     </style>
 </head>
@@ -49,7 +99,22 @@
     <section class="content">
         <h2>About Me</h2>
         <p>Hello! I'm Sachin Bisht, a passionate Software Developer Engineer with a strong interest in creating efficient and scalable solutions. I specialize in coding, debugging, and optimizing systems to enhance user experiences.</p>
+        <button class="reveal-button" onclick="toggleInfo()">Learn More</button>
+        <div class="extra-info" id="extraInfo">
+            <p>I enjoy working with modern technologies and constantly strive to improve my skills. In my free time, I love to explore new programming languages and frameworks.</p>
+        </div>
     </section>
+
+    <script>
+        function toggleInfo() {
+            const extraInfo = document.getElementById('extraInfo');
+            if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                extraInfo.style.display = "block";
+            } else {
+                extraInfo.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
 </html>
